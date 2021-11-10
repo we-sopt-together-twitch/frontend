@@ -24,6 +24,11 @@
     "lint-eslint": "eslint --ignore-path .gitignore src/**/*{js,jsx} --fix",
     "lint-prettier": "prettier --write \"src/**/*.(js|jsx)\""
   },
+  "lint-staged": {
+    "src/**/*.(js|jsx)": [
+      "yarn lint"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
