@@ -1,15 +1,20 @@
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Page404 } from "./pages/404";
+import { PageHome } from "./pages/Home";
 
 function App() {
-  return (
-    <div className="App">
-      <Button>asdf</Button>
-    </div>
-  );
+  return <RouteConfig />;
 }
 
-function Button(props) {
-  return <button>{props.children}</button>;
+function RouteConfig() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<PageHome />} />
+        <Route path="/*" element={<Page404 />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
