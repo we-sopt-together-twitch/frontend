@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Page404 } from "./pages/404";
 import { PageHome } from "./pages/Home";
 
-function App() {
+export function App() {
   return <RouteConfig />;
 }
 
@@ -16,5 +16,3 @@ function RouteConfig() {
     </BrowserRouter>
   );
 }
-
-export default App;
