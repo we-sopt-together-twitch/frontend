@@ -1,7 +1,5 @@
 import { RouteConfig } from "./routes";
 
-function App() {
+export function App() {
   return <RouteConfig />;
 }
-
-export default App;
