@@ -7,5 +7,12 @@ export const GlobalStyle = createGlobalStyle`
     * {
         box-sizing: border-box;
         margin: 0;
+
+        
+    }
+
+    :root {
+        font-size: 16px;
+        font-family: 'Noto Sans KR', sans-serif;
     }
 `;
