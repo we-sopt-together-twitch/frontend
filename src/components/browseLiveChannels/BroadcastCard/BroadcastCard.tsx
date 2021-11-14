@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { LiveThumbnail } from "../common/LiveThumbnail";
+import { LiveThumbnail } from "../../common/LiveThumbnail";
 import { BroadcastTags } from "./BroadcastTags";
 
 interface BroadcastCardProps {
