@@ -1,32 +1,27 @@
-import { useState } from "react";
 import styled from "styled-components";
-import { BroadcastCard } from "../../components/browseLiveChannels/BroadcastCard";
-import { CategoryTab, CategoryTabItem } from "../../components/browseLiveChannels/CategoryTab";
+import { BrowseLiveChannels } from "../../components/browseLiveChannels/BrowseLiveChannels";
+import { displaySize, SwitchDisplay } from "../../styles/responsive";
 
 export function TekiterTestPage() {
-  const [tabValue, setTabValue] = useState("game");
-
   return (
     <Background>
-      <Slot>
-        <BroadcastCard title="hello" summary="world" tags={["#Animal", "#Cat"]} />
-      </Slot>
-      <CategoryTab value={tabValue} onChange={(e, val) => setTabValue(val)}>
-        <CategoryTabItem label="Game" value="game" />
-        <CategoryTabItem label="Real Life" value="IRL" />
-      </CategoryTab>
+      <BrowseLiveChannels />
+      <SwitchDisplay desktop={<p>Desktop</p>} mobile={<p>Mobile</p>} tablet={<p>Tablet</p>} />
     </Background>
   );
 }
-
-const Slot = styled.div`
-  width: 18rem;
-  height: 22rem;
-`;
 
 const Background = styled.div`
   background-color: gray;
 
   padding: 5em;
   min-height: 100vh;
+
+  ${displaySize("tablet")} {
+    background-color: yellow;
+  }
+
+  ${displaySize("mobile")} {
+    background-color: green;
+  }
 `;

@@ -35,7 +35,7 @@ const StyledBroadcastCard = styled.div`
 
 const BroadcastLiveThumbnail = styled(LiveThumbnail)`
   width: 100%;
-  height: 8rem;
+  height: 100%;
 
   flex-grow: 1;
 `;
