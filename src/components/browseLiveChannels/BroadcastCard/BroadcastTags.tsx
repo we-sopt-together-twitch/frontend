@@ -29,6 +29,7 @@ const StyledBroadcastTags = styled.div`
 
 const Tag = styled.span`
   display: block;
+  font-size: 1.6em;
 
   color: ${colors.primary};
 `;

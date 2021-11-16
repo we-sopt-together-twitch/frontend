@@ -25,6 +25,8 @@ export function CategoryTab(props: CategoryTabProps) {
 const StyledCategoryTab = styled.div`
   display: flex;
 
+  font-size: 2em;
+
   & > *:not(:last-child) {
     margin-right: 1em;
   }
