@@ -12,16 +12,22 @@ export function TekiterTestPage() {
 }
 
 const Background = styled.div`
-  background-color: gray;
-
-  padding: 5em;
   min-height: 100vh;
+  margin: 0 auto;
+
+  width: 70em;
+
+  background-color: lightgray;
 
   ${displaySize("tablet")} {
     background-color: yellow;
+    padding: 1em;
+    width: unset;
   }
 
   ${displaySize("mobile")} {
     background-color: green;
+    padding: 1em;
+    width: unset;
   }
 `;

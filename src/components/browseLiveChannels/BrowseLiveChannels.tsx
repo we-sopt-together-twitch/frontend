@@ -3,12 +3,20 @@ import { BroadcastCard } from "./BroadcastCard";
 import { CategoryTab, CategoryTabItem } from "./CategoryTab";
 import { BrowseLiveChannelsLayout } from "./Layout";
 
+function sampleData() {
+  return {
+    title: "제목",
+    content: "내용",
+    summary: "요약",
+    tags: ["#Animal", "#Cat"],
+  };
+}
+
 export function BrowseLiveChannels() {
   const [selectedTab, setSelectedTab] = useState("game");
 
-  const renderedCards = [...new Array(10)].map((_, idx) => (
-    <BroadcastCard key={idx} title="hello" summary="world" tags={["#Animal", "#Cat"]} />
-  ));
+  const cards = [...new Array(10)].map((_, idx) => <BroadcastCard key={idx} {...sampleData()} />);
+  const mobileCards = [...new Array(10)].map((_, idx) => <BroadcastCard key={idx} {...sampleData()} compact />);
 
   return (
     <BrowseLiveChannelsLayout
@@ -20,7 +28,8 @@ export function BrowseLiveChannels() {
           <CategoryTabItem label="E-SPORT" value="e-sport" />
         </CategoryTab>
       }
-      cards={renderedCards}
+      cards={cards}
+      mobileCards={mobileCards}
     />
   );
 }

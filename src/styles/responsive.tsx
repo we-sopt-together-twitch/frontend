@@ -1,8 +1,8 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, ReactNode, useEffect, useState } from "react";
 
 const breakpoints = {
-  mobile: "768px",
-  tablet: "1023px",
+  mobile: "480px",
+  tablet: "768px",
   desktop: null,
 };
 
@@ -20,7 +20,7 @@ function matchSize(device: BreakpointNames): boolean {
 type BreakpointNames = keyof typeof breakpoints;
 
 /**
- * styled-components 안에 넣어 사용하는
+ * styled-components 안에 넣어 사용하는 미디어 쿼리 조건문
  * @param device 대상 디바이스 사이즈
  */
 export function displaySize(device: BreakpointNames) {
@@ -28,26 +28,32 @@ export function displaySize(device: BreakpointNames) {
 }
 
 interface SwitchDisplayProps {
-  desktop: ReactElement;
-  tablet?: ReactElement;
-  mobile?: ReactElement;
+  desktop: ReactNode;
+  tablet?: ReactNode;
+  mobile?: ReactNode;
 }
 
+/**
+ * 디스플레이 종류별 분기 렌더링을 해주는 컴포넌트
+ */
 export function SwitchDisplay(props: SwitchDisplayProps): ReactElement {
-  const display = useDisplaySizeChange();
+  const display = useDisplaySize();
 
-  if (props.mobile && display.size === "mobile") {
-    return props.mobile;
+  if (props.mobile && display.type === "mobile") {
+    return <>{props.mobile}</>;
   }
-  if (props.tablet && display.size === "tablet") {
+  if (props.tablet && display.type === "tablet") {
     {
-      return props.tablet;
+      return <>{props.tablet}</>;
     }
   }
-  return props.desktop;
+  return <>{props.desktop}</>;
 }
 
-export function useDisplaySizeChange() {
+/**
+ * 현재 디스플레이 종류를 알아오는 훅
+ */
+export function useDisplaySize() {
   const [display, setDisplay] = useState<BreakpointNames>("desktop");
 
   useEffect(() => {
@@ -60,6 +66,7 @@ export function useDisplaySizeChange() {
         setDisplay("desktop");
       }
     }
+    handler();
 
     window.addEventListener("resize", handler);
     return () => {
@@ -67,5 +74,5 @@ export function useDisplaySizeChange() {
     };
   }, []);
 
-  return { size: display };
+  return { type: display };
 }

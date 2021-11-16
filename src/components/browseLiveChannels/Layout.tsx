@@ -1,18 +1,22 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
+import { displaySize, SwitchDisplay } from "../../styles/responsive";
 
 interface BrowseLiveChannelsLayoutProps {
   tab: ReactNode;
   cards: ReactNode;
+  mobileCards: ReactNode;
 }
 
 export function BrowseLiveChannelsLayout(props: BrowseLiveChannelsLayoutProps) {
-  const { tab, cards } = props;
+  const { tab, cards, mobileCards } = props;
 
   return (
     <OuterBox>
       <TabSlot>{tab}</TabSlot>
-      <CardsSlot>{cards}</CardsSlot>
+      <CardsSlot>
+        <SwitchDisplay desktop={cards} mobile={mobileCards} />
+      </CardsSlot>
     </OuterBox>
   );
 }
@@ -33,7 +37,10 @@ const CardsSlot = styled.div`
   column-gap: 1rem;
   grid-auto-flow: row;
 
+  ${displaySize("mobile")} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   & > * {
-    height: 22rem;
   }
 `;
