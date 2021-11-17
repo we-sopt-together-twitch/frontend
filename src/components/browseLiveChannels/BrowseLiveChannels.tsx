@@ -1,31 +1,56 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { api } from "../../data/api";
 import { BroadcastCard } from "./BroadcastCard";
 import { CategoryTab, CategoryTabItem } from "./CategoryTab";
 import { BrowseLiveChannelsLayout } from "./Layout";
 
-function sampleData() {
-  return {
-    title: "제목",
-    content: "내용",
-    summary: "요약",
-    tags: ["#Animal", "#Cat"],
-  };
+interface TabType {
+  key: string;
+  label: string;
+}
+
+interface ChannelData {
+  title: string;
+  summary: string;
+  kinds: string[];
+  thumbnailImage: string;
 }
 
 export function BrowseLiveChannels() {
   const [selectedTab, setSelectedTab] = useState("game");
+  const [tabTypes, setTabTypes] = useState<TabType[]>([]);
+  const [channels, setChannels] = useState<ChannelData[]>([]);
 
-  const cards = [...new Array(10)].map((_, idx) => <BroadcastCard key={idx} {...sampleData()} />);
-  const mobileCards = [...new Array(10)].map((_, idx) => <BroadcastCard key={idx} {...sampleData()} compact />);
+  useEffect(() => {
+    (async () => {
+      const data = await api.channel.getTypes();
+      setTabTypes(
+        data.map((item) => ({
+          key: item.key,
+          label: item.en,
+        })),
+      );
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      const data = await api.channel.getLives(selectedTab);
+
+      setChannels(data);
+    })();
+  }, [selectedTab]);
+
+  const cards = channels.map((channel, idx) => <BroadcastCard key={idx} {...channel} />);
+  const mobileCards = channels.map((channel, idx) => <BroadcastCard key={idx} {...channel} compact />);
 
   return (
     <BrowseLiveChannelsLayout
       tab={
         <CategoryTab value={selectedTab} onChange={(e, val) => setSelectedTab(val)}>
-          <CategoryTabItem label="GAME" value="game" />
-          <CategoryTabItem label="REAL LIFE" value="real-life" />
-          <CategoryTabItem label="MUSIC" value="music" />
-          <CategoryTabItem label="E-SPORT" value="e-sport" />
+          {tabTypes.map((tab) => (
+            <CategoryTabItem label={tab.label} value={tab.key} key={tab.key} />
+          ))}
         </CategoryTab>
       }
       cards={cards}

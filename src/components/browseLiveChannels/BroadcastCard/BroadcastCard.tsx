@@ -6,18 +6,23 @@ interface BroadcastCardProps {
   title: string;
   summary: string;
   tags?: string[];
+  thumbnailImage: string;
 
   compact?: boolean;
 }
 
 export function BroadcastCard(props: BroadcastCardProps) {
-  const { title, summary, tags = [], compact = false } = props;
+  const { title, summary, tags = [], thumbnailImage, compact = false } = props;
 
   return (
     <StyledBroadcastCard compact={compact}>
-      <BroadcastLiveThumbnail />
+      <BroadcastLiveThumbnail>
+        <img src={thumbnailImage} />
+      </BroadcastLiveThumbnail>
       <ContentBox compact={compact}>
-        <Title>{title}</Title>
+        <Title>
+          <div>{title}</div>
+        </Title>
         <Summary>{summary}</Summary>
         <BroadcastTags tags={tags} />
       </ContentBox>
@@ -66,6 +71,17 @@ const Title = styled.h3`
   font-weight: 600;
 
   margin-top: 0.8em;
+  width: 100%;
+
+  display: table;
+  table-layout: fixed;
+
+  & > div {
+    display: table-cell;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 `;
 
 const Summary = styled.p`
