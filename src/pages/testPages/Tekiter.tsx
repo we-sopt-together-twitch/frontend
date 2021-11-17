@@ -15,7 +15,7 @@ const Background = styled.div`
   min-height: 100vh;
   margin: 0 auto;
 
-  width: 70em;
+  width: 150rem;
 
   background-color: lightgray;
 

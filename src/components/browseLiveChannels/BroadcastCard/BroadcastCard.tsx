@@ -40,7 +40,7 @@ const StyledBroadcastCard = styled.div<{ compact: boolean }>`
     compact
       ? ""
       : css`
-          padding: 0.7em;
+          padding: 1.3em;
         `};
 `;
 
@@ -62,7 +62,7 @@ const ContentBox = styled.div<{ compact: boolean }>`
 `;
 
 const Title = styled.h3`
-  font-size: 1.3em;
+  font-size: 2em;
   font-weight: 600;
 
   margin-top: 0.8em;
@@ -70,6 +70,7 @@ const Title = styled.h3`
 
 const Summary = styled.p`
   margin-top: 0.7em;
+  font-size: 1.8em;
 
   height: 3.5em;
 `;

@@ -6,8 +6,9 @@ export const GlobalStyle = createGlobalStyle`
     
     
     :root {
-        font-size: 65%;
+        font-size: 62.5%;
         font-family: 'Noto Sans KR', sans-serif;
+
     }
 
 

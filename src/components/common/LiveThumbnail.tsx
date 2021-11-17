@@ -51,8 +51,13 @@ const GradientLayer = styled.div`
 
 const IconLayer = styled.div`
   position: absolute;
-  left: 0.7em;
-  bottom: 0.8em;
+  left: 1.2em;
+  bottom: 1em;
+
+  & > * {
+    height: 3em;
+    width: 3em;
+  }
 `;
 
 const ContentPlaceHolder = styled.div`
