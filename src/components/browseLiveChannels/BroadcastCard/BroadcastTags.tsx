@@ -13,7 +13,7 @@ export function BroadcastTags(props: BroadcastTagsProps) {
   return (
     <StyledBroadcastTags>
       {tags.map((tag) => (
-        <Tag key={tag}>{tag}</Tag>
+        <Tag key={tag}>#{tag}</Tag>
       ))}
     </StyledBroadcastTags>
   );
@@ -22,6 +22,9 @@ export function BroadcastTags(props: BroadcastTagsProps) {
 const StyledBroadcastTags = styled.div`
   display: flex;
 
+  font-size: 1.6em;
+  height: 1em;
+
   & > *:not(:last-child) {
     margin-right: 0.4em;
   }
@@ -29,7 +32,7 @@ const StyledBroadcastTags = styled.div`
 
 const Tag = styled.span`
   display: block;
-  font-size: 1.6em;
+  text-overflow: ellipsis;
 
   color: ${colors.primary};
 `;

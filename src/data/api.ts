@@ -1,6 +1,6 @@
-import { CategoryServiceMock } from "./mock/categoryServiceMock";
-import { ChannelServiceMock } from "./mock/channelServiceMock";
-import { APIService } from "./types";
+import { CategoryServiceMock } from "./apiService/mock/categoryServiceMock";
+import { ChannelServiceMock } from "./apiService/mock/channelServiceMock";
+import { APIService } from "./apiService/types";
 
 export const api: APIService = apiFactory();
 
