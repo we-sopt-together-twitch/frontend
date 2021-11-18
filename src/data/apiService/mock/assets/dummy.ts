@@ -33,7 +33,7 @@ export const types = [
 export const channels: ChannelInfo[] = [
   {
     title: "테스트 방송입니다",
-    kinds: ["#LOL", "#Game"],
+    kinds: ["LOL", "Game"],
     category: "League of Legends",
     tags: ["한국어", "전략"],
     nowWatchingCount: 237,
@@ -48,7 +48,7 @@ export const channels: ChannelInfo[] = [
   },
   {
     title: "An English Broadcast",
-    kinds: ["#IRL", "#Travel"],
+    kinds: ["IRL", "Travel"],
     category: "IRL",
     tags: [],
     nowWatchingCount: 1004,
@@ -63,7 +63,7 @@ export const channels: ChannelInfo[] = [
   },
   {
     title: "제목이 좀 쓸데없이 이상하게 많이많이많이 길어요",
-    kinds: ["#IRL", "#Travel"],
+    kinds: ["IRL", "Travel"],
     category: "IRL",
     tags: [],
     nowWatchingCount: 9998,
