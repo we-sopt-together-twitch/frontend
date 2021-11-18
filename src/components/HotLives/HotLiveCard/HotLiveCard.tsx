@@ -15,10 +15,12 @@ interface HotLiveCardProps {
   thumbnailImage: string;
 
   compact?: boolean;
+
+  tablet?: boolean;
 }
 
-export const HotLiveCard = (props: HotLiveCardProps) => {
-  const { title, category, tags = [], kinds = [], thumbnailImage, host = {}, compact = false } = props;
+export function HotLiveCard(props: HotLiveCardProps) {
+  const { title, category, tags = [], kinds = [], thumbnailImage, host = {}, compact = false, tablet = false } = props;
   return (
     <StyledHotLiveCard compact={compact}>
       <BroadcastLiveThumbnail>
@@ -33,13 +35,15 @@ export const HotLiveCard = (props: HotLiveCardProps) => {
             <div>{title}</div>
           </Title>
           <Category>{category}</Category>
-          <HotLiveKinds kinds={kinds} />
-          <HotLiveTags tags={tags} />
+          <UnderBox>
+            <HotLiveKinds kinds={kinds} tablet={tablet} />
+            <HotLiveTags tags={tags} tablet={tablet} />
+          </UnderBox>
         </RightBox>
       </ContentBox>
     </StyledHotLiveCard>
   );
-};
+}
 
 const StyledHotLiveCard = styled.div<{ compact: boolean }>`
   height: 100%;
@@ -85,11 +89,11 @@ const Title = styled.h3`
   font-family: "Spoqa Han Sans Neo";
   font-style: normal;
   font-weight: bold;
-  font-size: 2.2em;
+  font-size: 2.2rem;
   color: #0e0e10;
-  line-height: 1.4em;
 
   width: 100%;
+  margin-bottom: 0.95rem;
 
   display: table;
   table-layout: fixed;
@@ -106,11 +110,14 @@ const Category = styled.span`
   font-family: "Spoqa Han Sans Neo";
   font-style: normal;
   font-weight: normal;
-  font-size: 1.8em;
-  line-height: 1.1em;
+  font-size: 1.8rem;
   color: #615a64;
-
   display: inline-block;
   width: 100%;
-  margin-top: 0.3em;
+  margin-bottom: 1.35rem;
+`;
+
+const UnderBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;

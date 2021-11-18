@@ -14,7 +14,7 @@ interface ChannelData {
   thumbnailImage: string;
 }
 
-export const HotLives = () => {
+export function HotLives() {
   const [channels, setChannels] = useState<ChannelData[]>([]);
 
   useEffect(() => {
@@ -35,6 +35,18 @@ export const HotLives = () => {
       thumbnailImage={channel.thumbnailImage}
     />
   ));
+  const tablet = channels.map((channel, idx) => (
+    <HotLiveCard
+      key={idx}
+      title={channel.title}
+      category={channel.category}
+      tags={channel.tags}
+      kinds={channel.kinds}
+      host={channel.host}
+      thumbnailImage={channel.thumbnailImage}
+      tablet
+    />
+  ));
   const mobileCards = channels.map((channel, idx) => (
     <HotLiveCard
       key={idx}
@@ -44,8 +56,9 @@ export const HotLives = () => {
       kinds={channel.kinds}
       host={channel.host}
       thumbnailImage={channel.thumbnailImage}
+      compact
     />
   ));
 
-  return <HotLivesLayout cards={cards} mobileCards={mobileCards} />;
-};
+  return <HotLivesLayout cards={cards} tablet={tablet} mobileCards={mobileCards} />;
+}
