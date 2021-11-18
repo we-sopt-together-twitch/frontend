@@ -1,7 +1,7 @@
 import { ChannelInfo } from "../../entity";
 
 export type RecommandedInfo = Pick<ChannelInfo, "host" | "category" | "subscribers"> & { fullBodyImage: string };
-export type HotLiveInfo = Pick<ChannelInfo, "title" | "category" | "thumbnailImage" | "tags" | "kinds">;
+export type HotLiveInfo = Pick<ChannelInfo, "title" | "category" | "thumbnailImage" | "tags" | "kinds" | "host">;
 export type LivesInfo = Pick<ChannelInfo, "title" | "kinds" | "summary" | "thumbnailImage">;
 export type KindInfo = {
   key: string;
