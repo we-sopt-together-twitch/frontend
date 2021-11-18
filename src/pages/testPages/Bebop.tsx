@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { HotLives } from "../../components/HotLives/HotLives";
+import { RecommendChannels } from "../../components/recommendChannels/RecommendChannels";
 import { displaySize, SwitchDisplay } from "../../styles/responsive";
 
 export function BebopTestPage() {
   return (
     <Background>
-      <HotLives />
-      <SwitchDisplay desktop={<p>Desktop</p>} mobile={<p>Mobile</p>} />
+      <RecommendChannels />
+      <SwitchDisplay desktop={<p>Desktop</p>} mobile={<p>Mobile</p>} tablet={<p>Tablet</p>} />
     </Background>
   );
 }
