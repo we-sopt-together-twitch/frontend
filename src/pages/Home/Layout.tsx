@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import styled, { css } from "styled-components";
-import { displaySize } from "../../styles/responsive";
+import { layout } from "../../styles/layout";
 
 export interface HomeLayoutProps {
   explore: ReactNode;
@@ -26,17 +26,8 @@ const contentWidth = css`
   & > * {
     margin: 0 auto;
 
-    ${displaySize("desktop")} {
-      width: 780px;
-    }
-
-    ${displaySize("tablet")} {
-      width: unset;
-    }
-
-    ${displaySize("mobile")} {
-      width: unset;
-    }
+    width: 100%;
+    max-width: ${layout.maxContentWidth};
   }
 `;
 

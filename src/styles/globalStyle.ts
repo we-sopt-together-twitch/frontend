@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 62.5%;
         font-family: 'Noto Sans KR', sans-serif;
 
+        
     }
 
 
