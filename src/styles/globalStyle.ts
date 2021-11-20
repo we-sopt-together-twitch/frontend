@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     
     :root {
         font-size: 62.5%;
-        font-family: 'Noto Sans KR', sans-serif;
+        font-family: 'Spoqa Han Sans', 'Noto Sans KR', sans-serif;
 
         
     }
@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
 
-    body {
-        
+    button, a {
+        font-family: 'Spoqa Han Sans', 'Noto Sans KR', sans-serif;
     }
 `;
