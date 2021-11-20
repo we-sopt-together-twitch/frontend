@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { ReactComponent as SearchIcon } from "../../assets/icon/search.svg";
 import { ReactComponent as LogoImage } from "../../assets/logo/logo.svg";
+import { ReactComponent as DownArrowIcon } from "../../assets/icon/downArrow.svg";
 
 export function TopNav() {
   return (
@@ -17,6 +18,7 @@ export function TopNav() {
         </IconButton>
         <ActionButton>로그인</ActionButton>
         <ActionButton variant="primary">회원가입</ActionButton>
+        <Dropdown label="KOR" />
       </FlowHorizontal>
     </StyledTopNav>
   );
@@ -81,4 +83,26 @@ const ActionButton = styled.button<{ variant?: string }>`
       `;
     }
   }}
+`;
+
+function Dropdown(props: { label: string }) {
+  return (
+    <StyledDropdown>
+      <DropdownLabel>{props.label}</DropdownLabel>
+      <DownArrowIcon />
+    </StyledDropdown>
+  );
+}
+
+const DropdownLabel = styled.div`
+  font-size: 1.7rem;
+
+  margin-right: 0.9rem;
+`;
+
+const StyledDropdown = styled.div`
+  display: flex;
+  align-items: center;
+
+  margin-left: 1.5rem;
 `;
