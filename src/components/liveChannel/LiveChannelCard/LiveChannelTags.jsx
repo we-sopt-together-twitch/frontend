@@ -64,8 +64,6 @@ const TagText = styled.label`
   left: 1rem;
   top: 2rem;
 
-  font-family: Spoqa Han Sans Neo;
-  font-style: normal;
   font-weight: normal;
   font-size: 1.2rem;
   line-height: 1.5rem;

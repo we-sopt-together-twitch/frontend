@@ -107,8 +107,7 @@ const Summary = styled.p`
   right: 60.49%;
   top: 85.28%;
   bottom: 11.49%;
-  font-family: Spoqa Han Sans Neo;
-  font-style: normal;
+
   font-size: 1.4rem;
   line-height: 1.8rem;
   /* identical to box height */
