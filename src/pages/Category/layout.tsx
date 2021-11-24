@@ -11,7 +11,10 @@ export function CategoryLayout(props: CategoryLayoutProps) {
 
   return (
     <StyledCategoryLayout>
-      <BroadcastCategorySlot>{broadcastCategory}</BroadcastCategorySlot>
+      <BroadcastCategorySlot>
+        <Title>방송 카테고리</Title>
+        {broadcastCategory}
+      </BroadcastCategorySlot>
     </StyledCategoryLayout>
   );
 }
@@ -29,4 +32,14 @@ const StyledCategoryLayout = styled.div`
   ${contentWidth}
 `;
 
-const BroadcastCategorySlot = styled.div``;
+const BroadcastCategorySlot = styled.div`
+  margin-top: 8rem;
+  margin-bottom: 9rem;
+`;
+
+const Title = styled.h1`
+  font-size: 3.6rem;
+  margin-bottom: 5rem;
+
+  font-weight: 600;
+`;

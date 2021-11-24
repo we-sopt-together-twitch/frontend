@@ -44,7 +44,10 @@ const StyledBroadcastCategoryCard = styled.div`
 const BroadcastCategoryThumbnail = styled.div`
   width: 100%;
   height: 100%;
-  flex-grow: 1;
+
+  & > img {
+    width: 100%;
+  }
 `;
 
 const ContentBox = styled.div`
