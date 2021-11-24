@@ -30,4 +30,9 @@ const TopNavSlot = styled.div`
 
 const ContentAreaSlot = styled.div``;
 
-const FooterSlot = styled.div``;
+const FooterSlot = styled.div`
+  padding: 8.6rem 0;
+  background-color: #f5f5f5;
+
+  border-top: 1px solid #9f9f9f;
+`;

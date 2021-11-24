@@ -1,4 +1,6 @@
 import { BrowseLiveChannels } from "../../components/browseLiveChannels/BrowseLiveChannels";
+import { Footer } from "../../components/common/Footer";
+import { HotLives } from "../../components/HotLives/HotLives";
 import { MainLayout } from "../../components/mainFrame/MainLayout";
 import { TopNav } from "../../components/mainFrame/TopNav";
 import { HomeLayout } from "./Layout";
@@ -11,11 +13,11 @@ export function PageHome() {
         <HomeLayout
           explore={<div></div>}
           browseLive={<BrowseLiveChannels />}
-          hotLive={<div></div>}
+          hotLive={<HotLives />}
           recommanded={<div></div>}
         />
       }
-      footer={<div>footer</div>}
+      footer={<Footer />}
     />
   );
 }
