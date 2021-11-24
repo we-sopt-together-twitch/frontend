@@ -16,8 +16,14 @@ export function HomeLayout(props: HomeLayoutProps) {
     <StyledHomeLayout>
       <ExploreSlot>{explore}</ExploreSlot>
       <RecommandedSlot>{recommanded}</RecommandedSlot>
-      <HotLiveSlot>{hotLive}</HotLiveSlot>
-      <BrowseLiveSlot>{browseLive}</BrowseLiveSlot>
+      <HotLiveSlot>
+        <Title>인기 라이브</Title>
+        {hotLive}
+      </HotLiveSlot>
+      <BrowseLiveSlot>
+        <Title>라이브 탐색</Title>
+        {browseLive}
+      </BrowseLiveSlot>
     </StyledHomeLayout>
   );
 }
@@ -48,6 +54,9 @@ const RecommandedSlot = styled.div`
 const HotLiveSlot = styled.div`
   background-color: #fafafa;
 
+  padding-top: 9.5rem;
+  padding-bottom: 9rem;
+
   ${contentWidth}
 `;
 
@@ -58,4 +67,11 @@ const BrowseLiveSlot = styled.div`
   padding-bottom: 18rem;
 
   ${contentWidth}
+`;
+
+const Title = styled.h1`
+  font-size: 3.6rem;
+  margin-bottom: 5rem;
+
+  font-weight: 600;
 `;

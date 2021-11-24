@@ -2,15 +2,16 @@ import styled, { css } from "styled-components";
 import { ReactComponent as SearchIcon } from "../../assets/icon/search.svg";
 import { ReactComponent as LogoImage } from "../../assets/logo/logo.svg";
 import { ReactComponent as DownArrowIcon } from "../../assets/icon/downArrow.svg";
+import { NavLink } from "react-router-dom";
 
 export function TopNav() {
   return (
     <StyledTopNav>
       <FlowHorizontal>
         <Logo></Logo>
-        <LinkButton>팔로잉</LinkButton>
-        <LinkButton>카테고리</LinkButton>
-        <LinkButton>채널</LinkButton>
+        <LinkButton to={{ pathname: "/" }}>팔로잉</LinkButton>
+        <LinkButton to={{ pathname: "/category" }}>카테고리</LinkButton>
+        <LinkButton to={{ pathname: "/" }}>채널</LinkButton>
       </FlowHorizontal>
       <FlowHorizontal>
         <IconButton>
@@ -41,7 +42,7 @@ const Logo = styled(LogoImage)`
   margin-right: 2rem;
 `;
 
-const LinkButton = styled.button`
+const LinkButton = styled(NavLink)`
   font-size: 1.7rem;
   font-weight: 600;
 
@@ -50,6 +51,14 @@ const LinkButton = styled.button`
   border: none;
   background-color: transparent;
   outline: none;
+
+  text-decoration: none;
+
+  text-align: center;
+
+  &:visited {
+    color: inherit;
+  }
 `;
 
 const IconButton = styled.button`
