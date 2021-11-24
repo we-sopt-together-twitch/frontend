@@ -54,6 +54,8 @@ const LinkButton = styled(NavLink)`
 
   text-decoration: none;
 
+  text-align: center;
+
   &:visited {
     color: inherit;
   }
