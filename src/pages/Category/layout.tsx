@@ -4,10 +4,11 @@ import { layout } from "../../styles/layout";
 
 interface CategoryLayoutProps {
   broadcastCategory: ReactNode;
+  liveChannels: ReactNode;
 }
 
 export function CategoryLayout(props: CategoryLayoutProps) {
-  const { broadcastCategory } = props;
+  const { broadcastCategory, liveChannels } = props;
 
   return (
     <StyledCategoryLayout>
@@ -15,6 +16,10 @@ export function CategoryLayout(props: CategoryLayoutProps) {
         <Title>방송 카테고리</Title>
         {broadcastCategory}
       </BroadcastCategorySlot>
+      <LiveChannelsSlot>
+        <Title>생방송 채널</Title>
+        {liveChannels}
+      </LiveChannelsSlot>
     </StyledCategoryLayout>
   );
 }
@@ -28,13 +33,22 @@ const contentWidth = css`
   }
 `;
 
-const StyledCategoryLayout = styled.div`
+const StyledCategoryLayout = styled.div``;
+
+const BroadcastCategorySlot = styled.div`
+  padding-top: 8rem;
+  padding-bottom: 9rem;
+
   ${contentWidth}
 `;
 
-const BroadcastCategorySlot = styled.div`
-  margin-top: 8rem;
-  margin-bottom: 9rem;
+const LiveChannelsSlot = styled.div`
+  padding-top: 9.5rem;
+  padding-bottom: 6rem;
+
+  background-color: #f9f9f9;
+
+  ${contentWidth}
 `;
 
 const Title = styled.h1`
