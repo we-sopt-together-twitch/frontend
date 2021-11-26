@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { HotLives } from "../../components/HotLives/HotLives";
+import { CarouselBox } from "../../components/mainCarousel/CarouselCard/CarouselBox";
 import { displaySize, SwitchDisplay } from "../../styles/responsive";
 
 export function BebopTestPage() {
   return (
     <Background>
-      <HotLives />
+      <CarouselBox />
       <SwitchDisplay desktop={<p>Desktop</p>} mobile={<p>Mobile</p>} tablet={<p>Tablet</p>} />
     </Background>
   );

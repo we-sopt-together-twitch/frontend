@@ -15,7 +15,10 @@ export function HomeLayout(props: HomeLayoutProps) {
   return (
     <StyledHomeLayout>
       <ExploreSlot>{explore}</ExploreSlot>
-      <RecommandedSlot>{recommanded}</RecommandedSlot>
+      <RecommandedSlot>
+        <Title>추천 채널</Title>
+        {recommanded}
+      </RecommandedSlot>
       <HotLiveSlot>
         <Title>인기 라이브</Title>
         {hotLive}
