@@ -2,16 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { SwitchDisplay } from "../../styles/responsive";
 
-export const HotLivesLayout = (props) => {
-  const { cards, mobileCards } = props;
+export function HotLivesLayout(props) {
+  const { cards, mobileCards, tablet } = props;
   return (
     <OuterBox>
       <CardsSlot>
-        <SwitchDisplay desktop={cards} mobile={mobileCards} />
+        <SwitchDisplay desktop={cards} tablet={tablet} mobile={mobileCards} />
       </CardsSlot>
     </OuterBox>
   );
-};
+}
 
 const OuterBox = styled.div``;
 
@@ -22,6 +22,6 @@ const CardsSlot = styled.div`
 
   grid-template-columns: repeat(3, 1fr);
   row-gap: 1rem;
-  column-gap: 5rem;
+  column-gap: 2em;
   grid-auto-flow: row;
 `;

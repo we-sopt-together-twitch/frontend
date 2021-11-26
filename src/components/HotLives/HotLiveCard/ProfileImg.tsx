@@ -39,9 +39,9 @@ const LiveIcon = styled.div`
   justify-content: center;
   align-items: center;
 
-  padding: 0.35rem 1.15rem 0.45rem;
+  padding: 0.2rem 1.1rem;
   background: #772ce8;
-  border-radius: 0.6em;
+  border-radius: 0.5em;
 
   font-family: "Spoqa Han Sans Neo";
   font-style: normal;

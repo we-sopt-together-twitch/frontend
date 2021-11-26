@@ -1,9 +1,9 @@
-import React from "react";
 import styled from "styled-components";
-import { SwitchDisplay } from "../../styles/responsive";
+import { displaySize, SwitchDisplay } from "../../styles/responsive";
 
-export function CarouselLayout(props) {
+export function LiveChannelLayout(props) {
   const { cards, mobileCards } = props;
+
   return (
     <OuterBox>
       <CardsSlot>
@@ -13,20 +13,22 @@ export function CarouselLayout(props) {
   );
 }
 
-const OuterBox = styled.div``;
+const OuterBox = styled.div`
+  & > * {
+  }
+`;
 
 const CardsSlot = styled.div`
   display: grid;
   width: 100%;
   height: fit-content;
 
-  width: 150rem;
-
-  grid-template-columns: repeat(1, 1fr);
-  row-gap: 1rem;
-  column-gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 2rem;
+  column-gap: 2rem;
   grid-auto-flow: row;
 
-  & > * {
+  ${displaySize("mobile")} {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
