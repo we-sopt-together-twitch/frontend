@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { CarouselComment } from "./CarouselComment";
 
 export function CommentBox(props) {
-  const { onInsert, comments } = props;
+  const { onInsert, comments, data } = props;
+  console.log(comments);
   const [value, setValue] = useState({
     content: "",
   });
@@ -32,9 +33,9 @@ export function CommentBox(props) {
   return (
     <CommentWrapper>
       <StyledCommentBox>
-        {comments &&
-          comments.map((comment) => {
-            return <CarouselComment key={comment.id} id={comment.id} name={comment.name} content={comment.content} />;
+        {data &&
+          data.messageList.map((comment) => {
+            return <CarouselComment key={comment.id} name={comment.name} message={comment.message} />;
           })}
       </StyledCommentBox>
       <StyledForm className="CommentInsert" onSubmit={onSubmit}>

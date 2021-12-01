@@ -1,18 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getBanner } from "../../../data/apiService/real/bannerReal";
 import { CarouselBtn } from "./CarouselBtn";
-import { dataCarousel } from "../dataCarousel";
-import styled from "styled-components";
-import "../Carousel.css";
 import { CarouselDots } from "./CarouselDots";
 import { CarouselIntro } from "./CarouselIntro";
+import styled from "styled-components";
+import "../Carousel.css";
 
 export function CarouselBox() {
   const [slideIndex, setSlideIndex] = useState(1);
+  const [banner, setBanner] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const data = await getBanner();
+      setBanner(data);
+      console.log(data);
+    })();
+  }, [slideIndex]);
 
   const nextSlide = () => {
-    if (slideIndex !== dataCarousel.length) {
+    if (slideIndex !== banner.length) {
       setSlideIndex(slideIndex + 1);
-    } else if (slideIndex === dataCarousel.length) {
+    } else if (slideIndex === banner.length) {
       setSlideIndex(1);
     }
   };
@@ -21,7 +30,7 @@ export function CarouselBox() {
     if (slideIndex !== 1) {
       setSlideIndex(slideIndex - 1);
     } else if (slideIndex === 1) {
-      setSlideIndex(dataCarousel.length);
+      setSlideIndex(banner.length);
     }
   };
 
@@ -30,15 +39,16 @@ export function CarouselBox() {
       <CarouselDots slideIndex={slideIndex} setSlideIndex={setSlideIndex} />
       <CarouselContent>
         <CarouselImg>
-          {dataCarousel.map((obj, index) => {
-            return (
-              <div key={obj.id} className={slideIndex === index + 1 ? "slide active-anim" : "slide"}>
-                <img src={process.env.PUBLIC_URL + `/img/sliderImg${index + 1}.png`} />
-              </div>
-            );
-          })}
+          {banner &&
+            banner.map((obj, index) => {
+              return (
+                <div key={obj.id} className={slideIndex === index + 1 ? "slide active-anim" : "slide"}>
+                  <img src={obj.thumbnailImg} />
+                </div>
+              );
+            })}
         </CarouselImg>
-        <CarouselIntro data={dataCarousel[slideIndex - 1]} />
+        <CarouselIntro data={banner[slideIndex - 1]} />
         <CarouselBtn moveSlide={nextSlide} direction={"next"} />
         <CarouselBtn moveSlide={prevSlide} direction={"prev"} />
       </CarouselContent>
@@ -56,7 +66,6 @@ const CarouselWrapper = styled.div`
 
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 20px rgba(1, 2, 0, 0.2);
 `;
 
 const CarouselContent = styled.div`

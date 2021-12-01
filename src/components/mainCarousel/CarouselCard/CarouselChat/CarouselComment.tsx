@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 export function CarouselComment(props) {
-  const { name, content } = props;
+  const { name, message } = props;
   return (
     <StyledComment>
       <StyledName>{name}</StyledName>
-      <StyledContent>{content}</StyledContent>
+      <StyledContent>{message}</StyledContent>
     </StyledComment>
   );
 }
