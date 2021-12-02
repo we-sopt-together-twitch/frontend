@@ -82,6 +82,8 @@ export const fullBody = fullBodyImage;
 
 export const categories: CategoryInfo[] = [
   { title: "League of Legends", tags: ["MOBA", "AOS", "액션", "인성"], watching: 42000, thumbnailImage: categoryImage },
+  { title: "dfsd of Legends", tags: ["MOBA", "AOS", "액션", "인성"], watching: 42000, thumbnailImage: categoryImage },
+  { title: "ssss of Legends", tags: ["MOBA", "AOS", "액션", "인성"], watching: 42000, thumbnailImage: categoryImage },
 ];
 
 function freeze<T>(obj: T) {

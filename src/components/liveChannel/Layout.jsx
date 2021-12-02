@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { displaySize, SwitchDisplay } from "../../styles/responsive";
+import { CategoryTitle } from "./CategoryTitle/CategoryTitle";
 
 export function LiveChannelLayout(props) {
   const { cards, mobileCards } = props;
 
   return (
     <OuterBox>
+      <CategoryTitle></CategoryTitle>{" "}
       <CardsSlot>
         <SwitchDisplay desktop={cards} mobile={mobileCards} />
       </CardsSlot>
