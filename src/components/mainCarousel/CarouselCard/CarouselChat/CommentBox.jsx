@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { postBanner } from "../../../../data/apiService/real/bannerServiceReal";
 import { CarouselComment } from "./CarouselComment";
 
 export function CommentBox(props) {
   const { data } = props;
+  const inputRef = useRef(null);
   const [message, setMessage] = useState({
     userName: "수진",
     message: "",
@@ -22,6 +23,7 @@ export function CommentBox(props) {
         <StyledInput
           type="text"
           placeholder="메세지를 입력해주세요"
+          ref={inputRef}
           onChange={(e) => {
             setMessage((pre) => {
               return { ...pre, message: e.target.value };
@@ -29,14 +31,15 @@ export function CommentBox(props) {
           }}
         />
         <StyledButton
-          text="보내기"
           onClick={async (e) => {
             e.preventDefault();
 
             const newMessage = message;
             await postBanner(newMessage);
-          }}
-        />
+            inputRef.current.value = "";
+          }}>
+          보내기
+        </StyledButton>
       </StyledForm>
     </CommentWrapper>
   );
@@ -57,29 +60,30 @@ const StyledForm = styled.form`
   width: 100%;
   height: 5.3rem;
 `;
-const StyledButton = styled.button``;
+
+const StyledButton = styled.button`
+  position: relative;
+  width: 24%;
+  border: none;
+  outline: none;
+  background: #e6e6e6;
+  line-height: 2.1rem;
+  font-size: 1.7rem;
+  white-space: nowrap;
+  overflow: hidden;
+`;
 
 const StyledInput = styled.input`
   position: relative;
   display: inline-block;
-  font-size: 20px;
+  font-size: 1.7rem;
   box-sizing: border-box;
 
   &[type="text"] {
     width: 76%;
     border: none;
     outline: none;
-    padding: 1.6rem 2.6rem;
+    padding: 1.6rem 0 1.6rem 2.6rem;
     background: #e6e6e6;
-  }
-
-  &[type="submit"] {
-    position: relative;
-    width: 24%;
-    border: none;
-    outline: none;
-    padding: 1.6rem 2.6rem;
-    background: #e6e6e6;
-    line-height: 2.1rem;
   }
 `;

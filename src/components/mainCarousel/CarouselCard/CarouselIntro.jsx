@@ -65,6 +65,11 @@ const Title = styled.h3`
   line-height: 4.3rem;
   letter-spacing: 0em;
 
+  display: table-cell;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
   width: 100%;
 `;
 
