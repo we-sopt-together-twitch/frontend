@@ -1,10 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { SwitchDisplay } from "../../styles/responsive";
 
-export function RecommendChannelsLayout({ cards }) {
+export function RecommendChannelsLayout(props) {
+  const { cards, tablet, mobileCards } = props;
   return (
     <OuterBox>
-      <CardsSlot>{cards}</CardsSlot>
+      <CardsSlot>
+        <SwitchDisplay desktop={cards} tablet={tablet} mobile={mobileCards} />
+      </CardsSlot>
     </OuterBox>
   );
 }
@@ -13,11 +17,11 @@ const OuterBox = styled.div``;
 
 const CardsSlot = styled.div`
   display: grid;
-  width: 77.7%;
-  height: 40rem;
+  width: 100%;
+  height: fit-content;
 
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1rem;
-  column-gap: 2rem;
+  column-gap: 4rem;
   grid-auto-flow: row;
 `;
