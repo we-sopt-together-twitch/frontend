@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getBanner } from "../../../data/apiService/real/bannerReal";
+import { getBanner } from "../../../data/apiService/real/bannerServiceReal";
 import { CarouselBtn } from "./CarouselBtn";
 import { CarouselDots } from "./CarouselDots";
 import { CarouselIntro } from "./CarouselIntro";

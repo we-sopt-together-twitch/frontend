@@ -1,34 +1,14 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { postBanner } from "../../../../data/apiService/real/bannerServiceReal";
 import { CarouselComment } from "./CarouselComment";
 
 export function CommentBox(props) {
-  const { onInsert, comments, data } = props;
-  console.log(comments);
-  const [value, setValue] = useState({
-    content: "",
+  const { data } = props;
+  const [message, setMessage] = useState({
+    userName: "수진",
+    message: "",
   });
-
-  const onChangeContent = useCallback(
-    (e) => {
-      setValue({
-        content: e.target.value,
-      });
-    },
-    [value],
-  );
-
-  const onSubmit = useCallback(
-    (e) => {
-      onInsert(value.content);
-      setValue({
-        content: "",
-      });
-
-      e.preventDefault();
-    },
-    [onInsert, value],
-  );
 
   return (
     <CommentWrapper>
@@ -38,9 +18,25 @@ export function CommentBox(props) {
             return <CarouselComment key={comment.id} name={comment.name} message={comment.message} />;
           })}
       </StyledCommentBox>
-      <StyledForm className="CommentInsert" onSubmit={onSubmit}>
-        <StyledInput type="text" placeholder="메세지를 입력해주세요" value={value.content} onChange={onChangeContent} />
-        <StyledInput type="submit" value="보내기" />
+      <StyledForm className="CommentInsert">
+        <StyledInput
+          type="text"
+          placeholder="메세지를 입력해주세요"
+          onChange={(e) => {
+            setMessage((pre) => {
+              return { ...pre, message: e.target.value };
+            });
+          }}
+        />
+        <StyledButton
+          text="보내기"
+          onClick={async (e) => {
+            e.preventDefault();
+
+            const newMessage = message;
+            await postBanner(newMessage);
+          }}
+        />
       </StyledForm>
     </CommentWrapper>
   );
@@ -61,6 +57,7 @@ const StyledForm = styled.form`
   width: 100%;
   height: 5.3rem;
 `;
+const StyledButton = styled.button``;
 
 const StyledInput = styled.input`
   position: relative;
