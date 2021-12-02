@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
 import { layout } from "../../styles/layout";
+import { displaySize } from "../../styles/responsive";
 
 interface MainLayoutProps {
   topNav: ReactNode;
@@ -26,6 +27,14 @@ const TopNavSlot = styled.div`
   width: 100%;
   max-width: ${layout.maxContentWidth};
   margin: 0 auto;
+
+  padding-left: 4rem;
+  padding-right: 4rem;
+
+  ${displaySize("mobile")} {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 `;
 
 const ContentAreaSlot = styled.div``;
