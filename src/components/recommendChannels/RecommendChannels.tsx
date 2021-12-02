@@ -12,6 +12,8 @@ function sampleData() {
 
 export function RecommendChannels() {
   const cards = [...new Array(4)].map((_, idx) => <ChannelCard key={idx} {...sampleData()} />);
+  const tablet = [...new Array(4)].map((_, idx) => <ChannelCard key={idx} {...sampleData()} />);
+  const mobileCards = [...new Array(4)].map((_, idx) => <ChannelCard key={idx} {...sampleData()} />);
 
-  return <RecommendChannelsLayout cards={cards} />;
+  return <RecommendChannelsLayout cards={cards} tablet={tablet} mobileCards={mobileCards} />;
 }

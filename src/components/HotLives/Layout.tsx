@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { SwitchDisplay } from "../../styles/responsive";
 
 export function HotLivesLayout(props) {
-  const { cards, mobileCards, tablet } = props;
+  const { cards, tablet, mobileCards } = props;
   return (
     <OuterBox>
       <CardsSlot>
@@ -17,7 +17,7 @@ const OuterBox = styled.div``;
 
 const CardsSlot = styled.div`
   display: grid;
-  width: 82%;
+  width: 100%;
   height: fit-content;
 
   grid-template-columns: repeat(3, 1fr);

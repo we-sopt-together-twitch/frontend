@@ -23,7 +23,7 @@ export const ChannelCard = ({ title, broadcast, subscribe }) => {
 
 const StyledChannelCard = styled.div`
   width: 100%;
-  height: 100%;
+  padding-top: 137.3%;
 
   position: relative;
   z-index: 1;
