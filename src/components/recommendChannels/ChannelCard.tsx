@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { displaySize } from "../../styles/responsive";
 
 interface ChannelCardProps {
   hostName: string;
@@ -32,7 +33,7 @@ export const ChannelCard = (props: ChannelCardProps) => {
 
 const StyledChannelCard = styled.div`
   width: 100%;
-  height: 100%;
+  padding-top: 137.3%;
 
   position: relative;
   z-index: 1;
@@ -113,6 +114,9 @@ const MainContents = styled.div`
 
   margin-left: 1.9rem;
   margin-bottom: 1.8rem;
+  ${displaySize("tablet")} {
+    margin-bottom: -2.7rem;
+  }
 `;
 
 const Title = styled.h3`
@@ -122,6 +126,10 @@ const Title = styled.h3`
   font-weight: 900;
   color: #ffffff;
   line-height: 4.3rem;
+  ${displaySize("tablet")} {
+    font-size: 2rem;
+    line-height: 2.3rem;
+  }
 `;
 
 const Broadcast = styled.span`
@@ -131,6 +139,12 @@ const Broadcast = styled.span`
   font-weight: normal;
   color: #ffffff;
   line-height: 2.3rem;
+  ${displaySize("tablet")} {
+    font-size: 1rem;
+  }
+  ${displaySize("mobile")} {
+    display: none;
+  }
 `;
 
 const SubContents = styled.div`
@@ -142,7 +156,7 @@ const SubContents = styled.div`
   align-items: center;
 
   margin-left: 1.9rem;
-  margin-bottom: 3.6rem;
+  margin-bottom: 1.6rem;
 `;
 
 const ChannelIcon = styled.div`
@@ -157,6 +171,10 @@ const ChannelIcon = styled.div`
     border-radius: 50%;
     border: 1px solid #767676;
   }
+  ${displaySize("tablet")} {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
 `;
 
 const Subscribe = styled.div`
@@ -166,4 +184,7 @@ const Subscribe = styled.div`
   font-weight: normal;
   color: #b4b4b4;
   line-height: 1.8rem;
+  ${displaySize("tablet")} {
+    font-size: 1rem;
+  }
 `;

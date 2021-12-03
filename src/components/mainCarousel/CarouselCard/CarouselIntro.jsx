@@ -1,8 +1,8 @@
 import React, { useCallback, useRef, useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as Live } from "../../../assets/icon/live.svg";
-import { ReactComponent as Profile } from "../../../assets/icon/profile.svg";
 import { CommentBox } from "./CarouselChat/CommentBox";
+import { displaySize } from "../../../styles/responsive";
 
 export function CarouselIntro(props) {
   const { data } = props;
@@ -26,19 +26,19 @@ export function CarouselIntro(props) {
     <IntroWrapper>
       <TopContent>
         <Live />
-        <Title>{data.title}</Title>
+        <Title>{data && data.title}</Title>
         <Host>
           <div>
-            <Profile />
+            <img src={process.env.PUBLIC_URL + `/img/profile${data && data.id}.svg`} alt="" />
           </div>
           <div>
-            <span>{data.nickname}</span>
-            <span>팔로워 {data.follower}명</span>
+            <span>{data && data.useName}</span>
+            <span>팔로워 {data && data.followerCount}명</span>
           </div>
         </Host>
       </TopContent>
       <BottomContent>
-        <CommentBox onInsert={onInsert} comments={comments} />
+        <CommentBox onInsert={onInsert} comments={comments} data={data} />
       </BottomContent>
     </IntroWrapper>
   );
@@ -46,6 +46,12 @@ export function CarouselIntro(props) {
 
 const IntroWrapper = styled.div`
   width: 42%;
+  ${displaySize("mobile")} {
+    position: absolute;
+    bottom: 12rem;
+    left: 3rem;
+    width: 86%;
+  }
 `;
 
 const TopContent = styled.div`
@@ -57,6 +63,10 @@ const TopContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  ${displaySize("mobile")} {
+    display: none;
+  }
 `;
 
 const Title = styled.h3`
@@ -66,10 +76,16 @@ const Title = styled.h3`
   line-height: 4.3rem;
   letter-spacing: 0em;
 
+  display: table-cell;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
   width: 100%;
 `;
 
 const BottomContent = styled.div`
+  width: 100%;
   height: 49%;
 `;
 
@@ -78,6 +94,12 @@ const Host = styled.div`
 
   & > div:first-child {
     margin-right: 1.1rem;
+    width: 5rem;
+    height: 5rem;
+    & > img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   & > div:nth-child(2) {

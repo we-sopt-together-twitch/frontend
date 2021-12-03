@@ -18,13 +18,13 @@
 
 .prev {
   top: 50%;
-  left: 0;
+  left: 4rem;
   transform: translateY(-60%);
 }
 
 .next {
   top: 50%;
-  right: 0;
+  right: 4rem;
   transform: translateY(-60%);
 }
 
@@ -32,14 +32,27 @@
   width: 1rem;
   height: 1rem;
   border-radius: 50%;
-  border: 3px solid #fefefe;
   margin: 0 5px;
   background: #ffffff;
   transition: 0.5s;
+  box-shadow: 0 10px 20px rgba(1, 2, 0, 0.2);
+  background-color: #FFFFFF;
 }
 
 .dot.active {
   width: 3.2rem;
   height: 1rem;
   border-radius: 0.7rem;
+}
+
+@media screen and (max-width: 480px) {
+  
+  .prev {
+    top: 90%;
+    left: 32.5rem;
+  }
+  .next {
+    top: 90%;
+    right: 2rem;
+  }
 }
