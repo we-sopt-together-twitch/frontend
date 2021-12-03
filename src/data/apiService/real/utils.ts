@@ -7,3 +7,7 @@ export function createAxiosSession(): AxiosInstance {
 
   return api;
 }
+
+export const client = axios.create({
+  baseURL: "https://asia-northeast3-twitchback-5d35f.cloudfunctions.net/api",
+});

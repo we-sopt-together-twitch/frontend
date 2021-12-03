@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 export function CarouselComment(props) {
-  const { name, content } = props;
+  const { name, message } = props;
   return (
     <StyledComment>
       <StyledName>{name}</StyledName>
-      <StyledContent>{content}</StyledContent>
+      <StyledContent>{message}</StyledContent>
     </StyledComment>
   );
 }
@@ -23,8 +23,18 @@ const StyledName = styled.div`
   line-height: 1.9rem;
   margin-right: 1.2rem;
   color: #848484;
+
+  display: table-cell;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 const StyledContent = styled.div`
   font-size: 1.5rem;
   line-height: 1.9rem;
+
+  display: table-cell;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;

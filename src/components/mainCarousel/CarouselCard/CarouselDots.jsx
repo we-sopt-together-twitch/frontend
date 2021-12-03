@@ -24,7 +24,7 @@ export function CarouselDots(props) {
 const ContainerDots = styled.div`
   position: absolute;
   top: -2.7rem;
-  left: 10%;
+  left: 15rem;
   transform: translateX(-50%);
   display: flex;
 `;
