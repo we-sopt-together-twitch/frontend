@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import styled, { css } from "styled-components";
 import { layout } from "../../styles/layout";
+import { displaySize } from "../../styles/responsive";
 
 export interface HomeLayoutProps {
   explore: ReactNode;
@@ -37,6 +38,14 @@ const contentWidth = css`
 
     width: 100%;
     max-width: ${layout.maxContentWidth};
+
+    padding-left: 4rem;
+    padding-right: 4rem;
+
+    ${displaySize("mobile")} {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 `;
 
