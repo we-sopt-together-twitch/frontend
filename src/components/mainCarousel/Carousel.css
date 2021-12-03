@@ -44,3 +44,15 @@
   height: 1rem;
   border-radius: 0.7rem;
 }
+
+@media screen and (max-width: 480px) {
+  
+  .prev {
+    top: 90%;
+    left: 32.5rem;
+  }
+  .next {
+    top: 90%;
+    right: 2rem;
+  }
+}

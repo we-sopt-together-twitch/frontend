@@ -2,6 +2,7 @@ import React, { useCallback, useRef, useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as Live } from "../../../assets/icon/live.svg";
 import { CommentBox } from "./CarouselChat/CommentBox";
+import { displaySize } from "../../../styles/responsive";
 
 export function CarouselIntro(props) {
   const { data } = props;
@@ -45,6 +46,12 @@ export function CarouselIntro(props) {
 
 const IntroWrapper = styled.div`
   width: 42%;
+  ${displaySize("mobile")} {
+    position: absolute;
+    bottom: 12rem;
+    left: 3rem;
+    width: 86%;
+  }
 `;
 
 const TopContent = styled.div`
@@ -56,6 +63,10 @@ const TopContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  ${displaySize("mobile")} {
+    display: none;
+  }
 `;
 
 const Title = styled.h3`
@@ -74,6 +85,7 @@ const Title = styled.h3`
 `;
 
 const BottomContent = styled.div`
+  width: 100%;
   height: 49%;
 `;
 

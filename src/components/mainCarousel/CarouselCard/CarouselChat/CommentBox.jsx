@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { postBanner } from "../../../../data/apiService/real/bannerServiceReal";
 import { CarouselComment } from "./CarouselComment";
+import { displaySize } from "../../../../styles/responsive";
 
 export function CommentBox(props) {
   const { data } = props;
@@ -53,6 +54,9 @@ const CommentWrapper = styled.div`
 const StyledCommentBox = styled.div`
   width: 100%;
   height: 13.2rem;
+  ${displaySize("mobile")} {
+    height: 11.2rem;
+  }
 `;
 
 const StyledForm = styled.form`

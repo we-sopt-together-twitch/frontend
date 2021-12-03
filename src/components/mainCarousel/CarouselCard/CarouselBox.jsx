@@ -3,6 +3,7 @@ import { getBanner } from "../../../data/apiService/real/bannerServiceReal";
 import { CarouselBtn } from "./CarouselBtn";
 import { CarouselDots } from "./CarouselDots";
 import { CarouselIntro } from "./CarouselIntro";
+import { displaySize } from "../../../styles/responsive";
 import styled from "styled-components";
 import "../Carousel.css";
 
@@ -72,6 +73,10 @@ const CarouselContent = styled.div`
   display: flex;
   height: 100%;
   padding: 5rem 7rem;
+  ${displaySize("mobile")} {
+    padding: 0;
+    height: 80%;
+  }
 `;
 
 const CarouselImg = styled.div`
@@ -79,6 +84,11 @@ const CarouselImg = styled.div`
 
   width: 58%;
   margin-right: 4rem;
+
+  ${displaySize("mobile")} {
+    width: 100%;
+    margin-right: 0;
+  }
 
   & > div {
     width: 100%;

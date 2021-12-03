@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { displaySize } from "../../../styles/responsive";
 import "../Carousel.css";
 
 export function CarouselDots(props) {
@@ -27,4 +28,7 @@ const ContainerDots = styled.div`
   left: 15rem;
   transform: translateX(-50%);
   display: flex;
+  ${displaySize("mobile")} {
+    display: none;
+  }
 `;
