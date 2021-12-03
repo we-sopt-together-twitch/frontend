@@ -1,17 +1,43 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import { api } from "../../data/api";
 import { ChannelCard } from "./ChannelCard";
 import { RecommendChannelsLayout } from "./Layout";
 
-function sampleData() {
-  return {
-    title: "Sona",
-    broadcast: "K-POP Music",
-    subscribe: "35.1만",
-  };
+interface ChannelInfo {
+  host: { name: string; profileImage: string };
+  category: string;
+  subscribers: number;
+  fullBodyImage: string;
 }
 
 export function RecommendChannels() {
-  const cards = [...new Array(4)].map((_, idx) => <ChannelCard key={idx} {...sampleData()} />);
+  const [cardData, setCardData] = useState<ChannelInfo[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const data = await api.channel.getRecommanded();
+      setCardData(data);
+      console.log(data);
+    })();
+  }, []);
+
+  const cards = cardData.map((item, idx) => (
+    <ChannelCard
+      key={idx}
+      category={item.category}
+      fullBodyImage={item.fullBodyImage}
+      profileImage={item.host.profileImage}
+      hostName={item.host.name}
+      subscribers={formatAmount(item.subscribers)}
+    />
+  ));
 
   return <RecommendChannelsLayout cards={cards} />;
+}
+
+function formatAmount(val: number): string {
+  if (val <= 10000) {
+    return `${val}`;
+  }
+  return `${Math.floor(val / 10000)}만`;
 }

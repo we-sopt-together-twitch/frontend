@@ -14,12 +14,12 @@ export class ChannelServiceReal implements ChannelService {
     const result: RecommandedInfo[] = serverArr.map((item) => {
       return {
         category: item.category,
-        fullBodyImage: item.host.profileImage,
+        fullBodyImage: item.host.profileURL,
         subscribers: item.subscribers,
         host: {
           id: "",
           name: item.host.name,
-          profileImage: item.host.logoImage,
+          profileImage: item.host.logoURL,
         },
       };
     });
@@ -61,8 +61,8 @@ export class ChannelServiceReal implements ChannelService {
 interface ServerRecommandedInfo {
   host: {
     name: string;
-    profileImage: string;
-    logoImage: string;
+    profileURL: string;
+    logoURL: string;
     bgColor: string;
   };
   category: string;

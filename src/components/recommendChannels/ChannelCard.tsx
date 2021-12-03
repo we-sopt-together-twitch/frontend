@@ -1,21 +1,30 @@
-import React from "react";
 import styled from "styled-components";
-import { ReactComponent as Thumbnail } from "../../assets/icon/sona.svg";
 
-export const ChannelCard = ({ title, broadcast, subscribe }) => {
+interface ChannelCardProps {
+  hostName: string;
+  category: string;
+  subscribers: string;
+  fullBodyImage: string;
+  profileImage: string;
+}
+
+export const ChannelCard = (props: ChannelCardProps) => {
+  const { category, hostName, subscribers, fullBodyImage, profileImage } = props;
   return (
     <StyledChannelCard>
       <div className="gradient"></div>
       <ThumbnailWrapper>
-        <Thumbnail />
+        <img src={fullBodyImage} alt="" />
       </ThumbnailWrapper>
       <MainContents>
-        <Title>{title}</Title>
-        <Broadcast>{broadcast} 방송 중</Broadcast>
+        <Title>{hostName}</Title>
+        <Broadcast>{category} 방송 중</Broadcast>
       </MainContents>
       <SubContents>
-        <ChannelIcon />
-        <Subscribe>{subscribe} 명 구독</Subscribe>
+        <ChannelIcon>
+          <img src={profileImage} alt="" />
+        </ChannelIcon>
+        <Subscribe>{subscribers}명 구독</Subscribe>
       </SubContents>
     </StyledChannelCard>
   );
@@ -142,8 +151,12 @@ const ChannelIcon = styled.div`
 
   margin-right: 0.9rem;
 
-  border-radius: 50%;
-  border: 1px solid #767676;
+  & > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid #767676;
+  }
 `;
 
 const Subscribe = styled.div`
