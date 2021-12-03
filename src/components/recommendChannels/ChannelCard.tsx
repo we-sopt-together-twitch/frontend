@@ -1,21 +1,31 @@
-import React from "react";
 import styled from "styled-components";
-import { ReactComponent as Thumbnail } from "../../assets/icon/sona.svg";
+import { displaySize } from "../../styles/responsive";
 
-export const ChannelCard = ({ title, broadcast, subscribe }) => {
+interface ChannelCardProps {
+  hostName: string;
+  category: string;
+  subscribers: string;
+  fullBodyImage: string;
+  profileImage: string;
+}
+
+export const ChannelCard = (props: ChannelCardProps) => {
+  const { category, hostName, subscribers, fullBodyImage, profileImage } = props;
   return (
     <StyledChannelCard>
       <div className="gradient"></div>
       <ThumbnailWrapper>
-        <Thumbnail />
+        <img src={fullBodyImage} alt="" />
       </ThumbnailWrapper>
       <MainContents>
-        <Title>{title}</Title>
-        <Broadcast>{broadcast} 방송 중</Broadcast>
+        <Title>{hostName}</Title>
+        <Broadcast>{category} 방송 중</Broadcast>
       </MainContents>
       <SubContents>
-        <ChannelIcon />
-        <Subscribe>{subscribe} 명 구독</Subscribe>
+        <ChannelIcon>
+          <img src={profileImage} alt="" />
+        </ChannelIcon>
+        <Subscribe>{subscribers}명 구독</Subscribe>
       </SubContents>
     </StyledChannelCard>
   );
@@ -104,6 +114,9 @@ const MainContents = styled.div`
 
   margin-left: 1.9rem;
   margin-bottom: 1.8rem;
+  ${displaySize("tablet")} {
+    margin-bottom: -2.7rem;
+  }
 `;
 
 const Title = styled.h3`
@@ -113,6 +126,10 @@ const Title = styled.h3`
   font-weight: 900;
   color: #ffffff;
   line-height: 4.3rem;
+  ${displaySize("tablet")} {
+    font-size: 2rem;
+    line-height: 2.3rem;
+  }
 `;
 
 const Broadcast = styled.span`
@@ -122,6 +139,12 @@ const Broadcast = styled.span`
   font-weight: normal;
   color: #ffffff;
   line-height: 2.3rem;
+  ${displaySize("tablet")} {
+    font-size: 1rem;
+  }
+  ${displaySize("mobile")} {
+    display: none;
+  }
 `;
 
 const SubContents = styled.div`
@@ -133,7 +156,7 @@ const SubContents = styled.div`
   align-items: center;
 
   margin-left: 1.9rem;
-  margin-bottom: 3.6rem;
+  margin-bottom: 1.6rem;
 `;
 
 const ChannelIcon = styled.div`
@@ -142,8 +165,16 @@ const ChannelIcon = styled.div`
 
   margin-right: 0.9rem;
 
-  border-radius: 50%;
-  border: 1px solid #767676;
+  & > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid #767676;
+  }
+  ${displaySize("tablet")} {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
 `;
 
 const Subscribe = styled.div`
@@ -153,4 +184,7 @@ const Subscribe = styled.div`
   font-weight: normal;
   color: #b4b4b4;
   line-height: 1.8rem;
+  ${displaySize("tablet")} {
+    font-size: 1rem;
+  }
 `;

@@ -69,6 +69,9 @@ const RecommandedSlot = styled.div`
   background-color: #ffffff;
   margin-top: 9.5rem;
   margin-bottom: 9rem;
+  ${displaySize("mobile")} {
+    width: 70rem;
+  }
 
   ${contentWidth}
 `;
