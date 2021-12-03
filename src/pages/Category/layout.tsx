@@ -13,6 +13,7 @@ export function CategoryLayout(props: CategoryLayoutProps) {
 
   return (
     <StyledCategoryLayout>
+      <ShadowDropper />
       <BroadcastCategorySlot>
         <Title>방송 카테고리</Title>
         {broadcastCategory}
@@ -43,6 +44,12 @@ const contentWidth = css`
 `;
 
 const StyledCategoryLayout = styled.div``;
+
+const ShadowDropper = styled.div`
+  width: 100%;
+  box-shadow: 0px 14px 5px 10px rgba(0, 0, 0, 0.04), 0px 10px 10px 10px rgba(0, 0, 0, 0.08),
+    0px 13px 4px 10px rgba(0, 0, 0, 0.1);
+`;
 
 const BroadcastCategorySlot = styled.div`
   padding-top: 8rem;

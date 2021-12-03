@@ -56,8 +56,14 @@ const LinkButton = styled(NavLink)`
 
   text-align: center;
 
+  color: inherit;
+
   &:visited {
     color: inherit;
+  }
+
+  &.active {
+    color: #772ce8;
   }
 `;
 
