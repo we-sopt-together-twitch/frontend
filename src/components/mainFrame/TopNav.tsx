@@ -11,7 +11,7 @@ export function TopNav() {
         <Logo></Logo>
         <LinkButton to={{ pathname: "/" }}>팔로잉</LinkButton>
         <LinkButton to={{ pathname: "/category" }}>카테고리</LinkButton>
-        <LinkButton to={{ pathname: "/" }}>채널</LinkButton>
+        <LinkButton to={{ pathname: "/channel" }}>채널</LinkButton>
       </FlowHorizontal>
       <FlowHorizontal>
         <IconButton>

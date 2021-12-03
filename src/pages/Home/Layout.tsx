@@ -8,16 +8,14 @@ export interface HomeLayoutProps {
   recommanded: ReactNode;
   hotLive: ReactNode;
   browseLive: ReactNode;
-  carouselBox: ReactNode;
 }
 
 export function HomeLayout(props: HomeLayoutProps) {
-  const { explore, recommanded, hotLive, browseLive, carouselBox } = props;
+  const { explore, recommanded, hotLive, browseLive } = props;
 
   return (
     <StyledHomeLayout>
       <ExploreSlot>{explore}</ExploreSlot>
-      <CarouselBox>{carouselBox}</CarouselBox>
       <RecommandedSlot>
         <Title>추천 채널</Title>
         {recommanded}
@@ -54,13 +52,15 @@ const contentWidth = css`
 const StyledHomeLayout = styled.div``;
 
 const ExploreSlot = styled.div`
-  margin-bottom: 9rem;
-`;
-
-const CarouselBox = styled.div`
-  background-color: #ffffff;
-  margin-top: 9.5rem;
-  margin-bottom: 9rem;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 30%,
+    rgba(119, 44, 232, 1) 30%,
+    rgba(119, 44, 232, 1) 100%
+  );
+  padding-top: 9.5rem;
+  padding-bottom: 9rem;
 
   ${contentWidth}
 `;

@@ -13,8 +13,7 @@ export function PageHome() {
       topNav={<TopNav />}
       content={
         <HomeLayout
-          explore={<div></div>}
-          carouselBox={<CarouselBox />}
+          explore={<CarouselBox />}
           browseLive={<BrowseLiveChannels />}
           hotLive={<HotLives />}
           recommanded={<RecommendChannels />}

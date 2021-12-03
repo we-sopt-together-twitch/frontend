@@ -15,7 +15,6 @@ export function CarouselBox() {
     (async () => {
       const data = await getBanner();
       setBanner(data);
-      console.log(data);
     })();
   }, [slideIndex]);
 
@@ -73,6 +72,9 @@ const CarouselContent = styled.div`
   display: flex;
   height: 100%;
   padding: 5rem 7rem;
+
+  background-color: #fafafa;
+
   ${displaySize("mobile")} {
     padding: 0;
     height: 80%;
