@@ -8,6 +8,16 @@ SOPT 29기 클라이언트-디자인 세미나의 Twitch 클론 프로젝트 입
 
 ## Directory Structure
 
+```
+./src
+├── assets
+├── components
+├── data
+├── pages
+├── routes
+└── styles
+```
+
 ## Commit Convention
 
 `종류: 내용` 포맷으로 메시지 작성
