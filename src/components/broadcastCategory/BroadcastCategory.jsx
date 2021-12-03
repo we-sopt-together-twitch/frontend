@@ -9,7 +9,7 @@ export function BroadcastCategory() {
   useEffect(() => {
     (async () => {
       const data = await api.category.getCategories();
-      setCategories(data);
+      setCategories(data.slice(1, 5));
     })();
   }, []);
 

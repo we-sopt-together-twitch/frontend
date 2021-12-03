@@ -23,7 +23,7 @@ export function LiveChannelCard(props) {
             <Watching>{(nowWatchingCount * 0.0001).toFixed(1)}만 명 </Watching> 시청중
           </Summary>
         </TextBox>
-      </ContentBox>{" "}
+      </ContentBox>
       <LiveChannelTags tags={tags} />
     </StyledBroadcastCard>
   );
